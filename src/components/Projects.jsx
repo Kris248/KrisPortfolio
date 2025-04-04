@@ -20,6 +20,14 @@ const projects = [
     live: "https://vmeet-video-conferencing.onrender.com/",
     image: "/images/vmeet.jpeg", // replace with your image
   },
+  {
+    title: "Personal Portfolio",
+    description: "A modern, responsive portfolio website showcasing my projects, skills, and a fun heart counter feature built with React and Framer Motion.",
+    tech: ["Three.js", "React.js", "Tailwind CSS", "Framer Motion",],
+    github: "https://github.com/Kris248/KrisPortfolio/tree/main",
+    live: "https://codedbykris-portfolio.netlify.app/",
+    image: "/images/portfolio.jpeg", // replace with your image
+  },
 ];
 
 const Projects = () => {
