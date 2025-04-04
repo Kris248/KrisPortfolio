@@ -1,0 +1,169 @@
+/* .projects-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  
+  .project-card {
+    background: rgba(17, 34, 64, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .project-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      45deg,
+      rgba(16, 185, 129, 0.1) 0%,
+      rgba(6, 182, 212, 0.1) 100%
+    );
+    z-index: -1;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+  }
+  
+  .project-card:hover::before {
+    opacity: 1;
+  }
+  
+  .project-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .project-title {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .project-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #10b981;
+    transition: width 0.3s ease;
+  }
+  
+  .project-card:hover .project-title::after {
+    width: 100%;
+  }
+  
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .gradient-text {
+    background: linear-gradient(-45deg, #10b981, #3b82f6, #10b981);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradient 5s ease infinite;
+  } */
+
+
+  .projects-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  
+  .project-card {
+    background: rgba(17, 34, 64, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .project-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      45deg,
+      rgba(16, 185, 129, 0.1) 0%,
+      rgba(6, 182, 212, 0.1) 100%
+    );
+    z-index: -1;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+  }
+  
+  .project-card:hover::before {
+    opacity: 1;
+  }
+  
+  .project-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .project-title {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .project-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #10b981;
+    transition: width 0.3s ease;
+  }
+  
+  .project-card:hover .project-title::after {
+    width: 100%;
+  }
+  
+  .gradient-text {
+    background: linear-gradient(-45deg, #10b981, #3b82f6, #10b981);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradient 5s ease infinite;
+  }
+  
+  /* ✅ New Styles for Icon Row */
+  .project-card .text-xl a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #14b8a6;
+    font-size: 1.25rem;
+    transition: color 0.3s ease;
+  }
+  
+  .project-card .text-xl a:hover {
+    color: #5eead4;
+  }
+
+  .project-thumbnail {
+    transition: transform 0.3s ease;
+  }
+  
+  .project-card:hover .project-thumbnail {
+    transform: scale(1.02);
+  }
+  
