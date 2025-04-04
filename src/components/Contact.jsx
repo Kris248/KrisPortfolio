@@ -1,19 +1,16 @@
-import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaEnvelope, FaHeart } from "react-icons/fa";
-import { GiSparkles } from "react-icons/gi";
+import { useState, useEffect } from "react";
 
 const Contact = () => {
-  const [heartCount, setHeartCount] = useState(0);
-  const [hasGivenHeart, setHasGivenHeart] = useState(false);
+  const [loveCount, setLoveCount] = useState(0);
   const [showPopup, setShowPopup] = useState(false);
   const [floatingHearts, setFloatingHearts] = useState([]);
 
+  // 🔁 Load loveCount from localStorage on component mount
   useEffect(() => {
-    const storedCount = localStorage.getItem("heartCount");
-    const givenHeart = localStorage.getItem("heartGiven");
-    if (storedCount) setHeartCount(parseInt(storedCount));
-    if (givenHeart) setHasGivenHeart(true);
+    const storedLove = localStorage.getItem("loveCount");
+    if (storedLove) setLoveCount(Number(storedLove));
   }, []);
 
   const createHearts = () => {
@@ -28,33 +25,23 @@ const Contact = () => {
     setFloatingHearts([...floatingHearts, ...hearts]);
   };
 
+  // ❤️ On Heart Click
   const handleHeartClick = () => {
-    if (hasGivenHeart) return;
-
-    const newCount = heartCount + 1;
-    setHeartCount(newCount);
-    setHasGivenHeart(true);
-    localStorage.setItem("heartCount", newCount.toString());
-    localStorage.setItem("heartGiven", "true");
+    const newCount = loveCount + 1;
+    setLoveCount(newCount);
+    localStorage.setItem("loveCount", newCount);
+    
     setShowPopup(true);
-
     createHearts();
     setTimeout(() => setShowPopup(false), 5000);
   };
-
-  // const handleReset = () => {
-  //   localStorage.removeItem("heartGiven");
-  //   localStorage.removeItem("heartCount");
-  //   setHeartCount(0);
-  //   setHasGivenHeart(false);
-  // };
 
   return (
     <section
       id="contact"
       className="relative bg-[#0c0101] text-white overflow-hidden py-24 px-6"
     >
-      {/* SVG Background Wave */}
+      {/* 🌊 Top SVG Wave */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-none rotate-180">
         <svg viewBox="0 0 500 150" preserveAspectRatio="none" className="w-full h-24">
           <path
@@ -64,22 +51,7 @@ const Contact = () => {
         </svg>
       </div>
 
-      {/* Animated Sparkles */}
-      <div className="absolute inset-0 pointer-events-none">
-        {Array.from({ length: 20 }).map((_, i) => (
-          <GiSparkles 
-            key={i}
-            className="absolute text-pink-200/20 animate-float"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              fontSize: `${Math.random() * 15 + 5}px`,
-              animationDelay: `${i * 0.5}s`
-            }}
-          />
-        ))}
-      </div>
-
+      {/* 📬 Main Contact Content */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -92,8 +64,7 @@ const Contact = () => {
         </h2>
 
         <p className="text-gray-400 mt-4 text-lg">
-          Open for collaborations, freelance gigs, or just a tech convo.
-          <br />
+          Open for collaborations, freelance gigs, or just a tech convo.<br />
           Drop me a line anytime — I’ll respond faster than your API 😉
         </p>
 
@@ -111,14 +82,13 @@ const Contact = () => {
           </span>
         </motion.a>
 
-        {/* Enhanced Heart Section */}
+        {/* ❤️ Enhanced Heart Section */}
         <div className="mt-12 flex flex-col items-center justify-center space-y-4">
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={handleHeartClick}
-            disabled={hasGivenHeart}
-            className="relative w-20 h-20 flex items-center justify-center text-4xl bg-pink-500 hover:bg-pink-600 text-white rounded-full shadow-2xl transition-all duration-300 disabled:opacity-50"
+            className="relative w-20 h-20 flex items-center justify-center text-4xl bg-pink-500 hover:bg-pink-600 text-white rounded-full shadow-2xl transition-all duration-300"
           >
             ❤️
             <div className="absolute inset-0 rounded-full border-4 border-pink-300/30 animate-pulse" />
@@ -131,7 +101,7 @@ const Contact = () => {
             transition={{ duration: 1.5, repeat: Infinity }}
           >
             <FaHeart className="text-red-400" />
-            {heartCount} {heartCount === 1 ? "Heart" : "Hearts"} Given
+            {loveCount} {loveCount === 1 ? "Heart" : "Hearts"} Given
             <FaHeart className="text-red-400" />
           </motion.p>
         </div>
@@ -171,7 +141,7 @@ const Contact = () => {
           </motion.div>
         ))}
 
-        {/* Enhanced Popup */}
+        {/* Popup Notification */}
         <AnimatePresence>
           {showPopup && (
             <motion.div
@@ -180,22 +150,12 @@ const Contact = () => {
               exit={{ opacity: 0, y: -20, scale: 0.5 }}
               className="fixed bottom-8 left-1/2 -translate-x-1/2 bg-gray-800 p-4 rounded-2xl shadow-xl border border-pink-500/30 flex items-center gap-3"
             >
-              
               <div className="text-pink-400 font-semibold">
-              You didn’t just click a heart — you became one 💝
+                You didn’t just click a heart — you became one 💝
               </div>
             </motion.div>
           )}
         </AnimatePresence>
-
-        {/* Styled Reset Button */}
-        {/* <motion.button
-          onClick={handleReset}
-          whileHover={{ scale: 1.05 }}
-          className="mt-6 px-4 py-2 text-sm bg-gray-800 hover:bg-gray-700 text-pink-400 border border-pink-500/30 rounded-full shadow-md flex items-center gap-2 mx-auto"
-        >
-          🔄 Reset Hearts
-        </motion.button> */}
       </motion.div>
     </section>
   );
