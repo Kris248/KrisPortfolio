@@ -42,19 +42,12 @@ const Contact = () => {
     setTimeout(() => setShowPopup(false), 5000);
   };
 
-  const handleReset = () => {
-    localStorage.removeItem("heartGiven");
-    localStorage.removeItem("heartCount");
-    setHeartCount(0);
-    setHasGivenHeart(false);
-  };
-
   return (
     <section
       id="contact"
       className="relative bg-[#0c0101] text-white overflow-hidden py-24 px-6"
     >
-      {/* SVG Background Wave */}
+      {/* Wave Background */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-none rotate-180">
         <svg viewBox="0 0 500 150" preserveAspectRatio="none" className="w-full h-24">
           <path
@@ -97,7 +90,7 @@ const Contact = () => {
           Drop me a line anytime — I’ll respond faster than your API 😉
         </p>
 
-        {/* Enhanced Email Button */}
+        {/* Email Button */}
         <motion.a
           href="mailto:chris.gautam.0024@gmail.com"
           whileHover={{ scale: 1.05 }}
@@ -111,29 +104,59 @@ const Contact = () => {
           </span>
         </motion.a>
 
-        {/* Enhanced Heart Section */}
-        <div className="mt-12 flex flex-col items-center justify-center space-y-4">
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            onClick={handleHeartClick}
-            disabled={hasGivenHeart}
-            className="relative w-20 h-20 flex items-center justify-center text-4xl bg-pink-500 hover:bg-pink-600 text-white rounded-full shadow-2xl transition-all duration-300 disabled:opacity-50"
+        {/* Heart Section */}
+        <div className="mt-12 flex flex-col items-center justify-center space-y-6">
+          {/* Total Hearts Display */}
+          <motion.div 
+            className="flex flex-col items-center gap-2"
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ delay: 0.3 }}
           >
-            ❤️
-            <div className="absolute inset-0 rounded-full border-4 border-pink-300/30 animate-pulse" />
-            <div className="absolute -inset-4 bg-pink-300/20 rounded-full blur-xl" />
-          </motion.button>
+            <div className="relative">
+              <div className="absolute -inset-4 bg-pink-500/20 rounded-full blur-xl" />
+              <div className="text-6xl text-pink-400 animate-heartbeat">
+                ❤️
+              </div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span className="text-2xl font-bold text-white">
+                  {heartCount}
+                </span>
+              </div>
+            </div>
+            <p className="text-gray-400 text-lg font-medium">
+              Hearts Received
+            </p>
+          </motion.div>
 
-          <motion.p 
-            className="text-pink-400 font-bold text-xl flex items-center gap-2"
-            animate={{ y: [-2, 2, -2] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-          >
-            <FaHeart className="text-red-400" />
-            {heartCount} {heartCount === 1 ? "Heart" : "Hearts"} Given
-            <FaHeart className="text-red-400" />
-          </motion.p>
+          {/* Heart Giving Button */}
+          <div className="flex flex-col items-center gap-4">
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={handleHeartClick}
+              disabled={hasGivenHeart}
+              className="relative w-16 h-16 flex items-center justify-center text-4xl bg-pink-500 hover:bg-pink-600 text-white rounded-full shadow-2xl transition-all duration-300 disabled:opacity-50"
+            >
+              ❤️
+              <div className="absolute inset-0 rounded-full border-4 border-pink-300/30 animate-pulse" />
+            </motion.button>
+
+            <motion.p 
+              className="text-pink-300 text-sm flex items-center gap-2"
+              animate={{ opacity: [0.8, 1, 0.8] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            >
+              {hasGivenHeart ? (
+                <>
+                  <FaHeart className="text-red-400" />
+                  Made by Krish Gautam
+                </>
+              ) : (
+                "Click the heart to show some love!"
+              )}
+            </motion.p>
+          </div>
         </div>
 
         {/* Floating Hearts */}
@@ -171,7 +194,7 @@ const Contact = () => {
           </motion.div>
         ))}
 
-        {/* Enhanced Popup */}
+        {/* Popup Message */}
         <AnimatePresence>
           {showPopup && (
             <motion.div
@@ -180,22 +203,12 @@ const Contact = () => {
               exit={{ opacity: 0, y: -20, scale: 0.5 }}
               className="fixed bottom-8 left-1/2 -translate-x-1/2 bg-gray-800 p-4 rounded-2xl shadow-xl border border-pink-500/30 flex items-center gap-3"
             >
-              
               <div className="text-pink-400 font-semibold">
-              You didn’t just click a heart — you became one 💝
+                You're amazing! Thanks for the love! 💖
               </div>
             </motion.div>
           )}
         </AnimatePresence>
-
-        {/* Styled Reset Button */}
-        <motion.button
-          onClick={handleReset}
-          whileHover={{ scale: 1.05 }}
-          className="mt-6 px-4 py-2 text-sm bg-gray-800 hover:bg-gray-700 text-pink-400 border border-pink-500/30 rounded-full shadow-md flex items-center gap-2 mx-auto"
-        >
-          🔄 Reset Hearts
-        </motion.button>
       </motion.div>
     </section>
   );
