@@ -25,6 +25,7 @@ const Hero = () => {
 
   return (
     <section 
+    id='home'
       className="relative h-screen flex flex-col justify-center items-center text-center px-6 overflow-hidden"
       style={{
         background: 'radial-gradient(ellipse at bottom, #0a192f 0%, #020617 100%)'

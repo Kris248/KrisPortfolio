@@ -7,10 +7,11 @@ const Header = () => {
   const [nav, setNav] = useState(false);
 
   const navItems = [
-    { id: 1, name: "About", link: "about" },
-    { id: 2, name: "Experience", link: "experience" },
-    { id: 3, name: "Projects", link: "projects" },
-    { id: 4, name: "Contact", link: "contact" },
+    { id: 1, name: "Home", link: "home" },
+    { id: 2, name: "About", link: "about" },
+    { id: 3, name: "Experience", link: "experience" },
+    { id: 4, name: "Projects", link: "projects" },
+    { id: 5, name: "Contact", link: "contact" },
   ];
 
   const menuVariants = {
