@@ -42,12 +42,12 @@ const Contact = () => {
     setTimeout(() => setShowPopup(false), 5000);
   };
 
-  // const handleReset = () => {
-  //   localStorage.removeItem("heartGiven");
-  //   localStorage.removeItem("heartCount");
-  //   setHeartCount(0);
-  //   setHasGivenHeart(false);
-  // };
+  const handleReset = () => {
+    localStorage.removeItem("heartGiven");
+    localStorage.removeItem("heartCount");
+    setHeartCount(0);
+    setHasGivenHeart(false);
+  };
 
   return (
     <section
@@ -189,13 +189,13 @@ const Contact = () => {
         </AnimatePresence>
 
         {/* Styled Reset Button */}
-        {/* <motion.button
+        <motion.button
           onClick={handleReset}
           whileHover={{ scale: 1.05 }}
           className="mt-6 px-4 py-2 text-sm bg-gray-800 hover:bg-gray-700 text-pink-400 border border-pink-500/30 rounded-full shadow-md flex items-center gap-2 mx-auto"
         >
           🔄 Reset Hearts
-        </motion.button> */}
+        </motion.button>
       </motion.div>
     </section>
   );
