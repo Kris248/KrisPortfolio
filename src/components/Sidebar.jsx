@@ -14,7 +14,7 @@ const Sidebar = () => {
         <FaGithub size={28} />
       </a>
       <a
-        href="https://www.linkedin.com/in/kris-gautam-57b4742b5/"
+        href="https://www.linkedin.com/in/krish-gautam-57b4742b5/"
         target="_blank"
         rel="noopener noreferrer"
         className="icon-style"
