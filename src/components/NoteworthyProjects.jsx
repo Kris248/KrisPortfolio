@@ -16,7 +16,7 @@ const projects = [
     live: "#",
   },
   {
-    title: "Forex Trading AlgoTrading BOT",
+    title: "Forex AlgoTrading BOT",
     tech: ["Machine Learning", "Python"],
     github: "https://github.com/Kris248/FX_Killer_AlgoTrading_BOT",
     live: "#",
