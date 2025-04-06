@@ -16,6 +16,12 @@ const projects = [
     live: "#",
   },
   {
+    title: "Forex Trading AlgoTrading BOT",
+    tech: ["Machine Learning", "Python"],
+    github: "https://github.com/Kris248/FX_Killer_AlgoTrading_BOT",
+    live: "#",
+  },
+  {
     title: "Xometry Quotes App",
     tech: ["React", "Firebase OAuth", "HTML", "CSS"],
     github: "https://github.com/Kris248/react-firebase-auth",
