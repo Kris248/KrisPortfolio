@@ -82,7 +82,7 @@ const About = () => {
           >
             <div className="relative overflow-hidden rounded-2xl border-4 border-teal-400/20 group-hover:border-teal-400/40 transition-all duration-300 shadow-2xl group-hover:shadow-3xl">
               <img
-                src="/images/profile.jpeg"
+                src="/images/prrrofile.jpeg"
                 alt="Profile"
                 className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 object-cover"
               />
