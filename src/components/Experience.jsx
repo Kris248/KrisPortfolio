@@ -8,19 +8,6 @@ import {
 
 const experiences = [
   {
-    year: "2025",
-    company: "Acciojob",
-    role: "Java Full-Stack Developer Apprentice",
-    duration: "Jan 2025 – August 2025",
-    points: [
-      "Participating in an intensive, industry-focused full-stack development program with a focus on Java, Spring Boot, React.js and backend development",
-    ],
-    links: {
-      certificate: "#",
-      lor: "#",
-    },
-  },
-  {
     year: "2024",
     company: "Techplement",
     role: "Backend Engineer Intern",
