@@ -28,6 +28,14 @@ const projects = [
     live: "https://vmeet-video-conferencing.onrender.com/",
     image: "/images/vmeet.jpeg", // replace with your image
   },
+    {
+    title: "Lumio AI Email Sender",
+    description: "Send AI genereated (editable) Emails using prompt to multiple recipients at once.",
+    tech: ["Express", "Nodemailer", "Groq SDK", "React", "Git", "Ethereal", "Nodejs"],
+    github: "https://github.com/Kris248/Lumio-AI-Email-Sender",
+    live: "https://lumio-ai-email-sender.netlify.app/",
+    image: "/images/lumio.png", // replace with your image
+  },
 ];
 
 const Projects = () => {
