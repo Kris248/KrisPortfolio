@@ -40,7 +40,7 @@ const Header = () => {
             duration={500}
             className="text-2xl font-bold bg-gradient-to-r from-teal-400 to-blue-400 bg-clip-text text-transparent cursor-pointer"
           >
-            KRISH GAUTAM
+            Portfolio
           </ScrollLink>
         </motion.div>
 
