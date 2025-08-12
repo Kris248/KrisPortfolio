@@ -36,6 +36,14 @@ const projects = [
     live: "https://lumio-ai-email-sender.netlify.app/",
     image: "/images/lumio.png", // replace with your image
   },
+    {
+    title: "Student Course Enrollment System",
+    description: "A full-stack web application for managing student course enrollments with separate portals for students and administrators. Built with React, Node.js, Express, and MySQL.",
+    tech: ["Express", "Nodejs", "React", "JWT", "MySql", "Router", "SweetAlert2"],
+    github: "https://github.com/Kris248/Student-Course-Enrollment-System",
+    live: "https://github.com/Kris248/Student-Course-Enrollment-System",
+    image: "/images/course.png", // replace with your image
+  },
 ];
 
 const Projects = () => {
